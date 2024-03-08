@@ -11,7 +11,7 @@ const { connect } = require("http2");
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "shahidmalik",
+  password: "",
   database: "jamia_college",
   insecureAuth: true,
 });
