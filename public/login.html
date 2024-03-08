@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome  !</h1>
+        
+        <div class="options">
+            <h2>Sign Up</h2>
+            <ul>
+                <li><a href="/signupstu" >Student</a></li>
+                <li><a href="/signuptea">Teacher</a></li>
+            </ul>
+        </div>
+        
+        <div class="options">
+            <h2>Login</h2>
+            <form method="post" action="/login">
+                <label for="username">Username/Email:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <select name="role" id="role" required>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="admin">Admin (Restricted Access)</option>
+                </select>
+                <br>
+                <button type="submit">Login</button>
+            </form>
+            <a href="forgot_password.html">Forgot your password?</a>
+        </div>
+    </div>
+</body>
+</html>

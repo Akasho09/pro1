@@ -1,0 +1,11 @@
+New GET request received at 3:45:43 PM on 2/28/2024 at /users ip : ::1 
+New GET request received at 3:45:45 PM on 2/28/2024 at /favicon.ico ip : ::1 
+New GET request received at 3:45:51 PM on 2/28/2024 at /uapi/sers ip : ::1 
+New GET request received at 3:45:55 PM on 2/28/2024 at /api/sers ip : ::1 
+New GET request received at 3:45:59 PM on 2/28/2024 at /api/users ip : ::1 
+New GET request received at 3:46:18 PM on 2/28/2024 at /api/users/1005 ip : ::1 
+New GET request received at 3:46:22 PM on 2/28/2024 at /api/users/1006 ip : ::1 
+New GET request received at 3:46:34 PM on 2/28/2024 at /api/users ip : ::1 
+New GET request received at 3:46:37 PM on 2/28/2024 at /api/users ip : ::1 
+action="submit.html"
+action="http://localhost:3000/home"
