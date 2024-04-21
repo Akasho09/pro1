@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management System</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <link rel="stylesheet" href="./css/home.css"> </head>
 <body>
     <header>
         <h1>Student Management System</h1>
@@ -15,12 +15,20 @@
             <li><a href="add.html" >Add Student</a></li>
             <li><a href="/view">View Students</a></li>
         </ul>
-        
-        <div class="search-bar">
-            <input type="text" id="search-box" placeholder="Search Students">
-            <button id="search-btn" type="submit">Search</button>
-        </div>
-        
+    <form method="post" action="/searchpage">   
+         <input type="text" id="search" placeholder="Search by Name or Id" name="searched">
+         <button id="search-btn" type="submit">Search</button>
+         <!-- <label for="search">serach:</label>
+         <input type="text" id="search" name="searched"><br><br>
+         <input type="submit" value="Submit Form 1"> -->
+    </form>
+    <!-- <form method="post" action="/searchpage">   
+        <input type="number" id="search" placeholder="Search by id" name="searched">
+        <button id="search-btn" type="submit">Search</button>
+         <label for="search">serach:</label>
+        <input type="text" id="search" name="searched"><br><br>
+        <input type="submit" value="Submit Form 1"> 
+   </form> -->
         <div class="profile-dropdown">
             <button>User Profile</button>
             <ul>
