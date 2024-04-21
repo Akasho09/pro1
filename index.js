@@ -24,7 +24,7 @@ const port = process.env.port || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // New
 app.use(express.static(path.join(__dirname, "public")));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 
 
 // Connect to the database
@@ -57,18 +57,18 @@ app.use(bodyParser.json());
 // ---->Handling specific routes  //
 
 //login and landing page
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "login.html"));
-});
+// app.get("/login", (req, res) => {
+//   res.sendFile(path.join(__dirname, "public", "login.html"));
+// });
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 
 // home page
-app.get("/home", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "home.html"));
-});
+// app.get("/home", (req, res) => {
+//   res.sendFile(path.join(__dirname, "public", "home.html"));
+// });
 
 // sign up page student
 app.get("/signupstu", (req, res) => {
@@ -80,31 +80,29 @@ app.get("/signupstu", (req, res) => {
 // console.log(search1.tosearch);
 // res.send('Data submitted successfully!');
 // });
-app.post('/search', (req, res) => {
-  if (roleof === 'teacher') { // Use strict comparison (===) for role check
-    const inputValue = req.body.inputValue;
-    console.log(inputValue);
-
+app.post('/searchpage', (req, res) => {
+  // if (roleof === 'teacher') { 
+    var inputValue = req.body.searched;
     try {
-      connection.query('SELECT * FROM studentdata WHERE name=? OR id=?' ,[inputValue ,inputValue] ,
+      connection.query('SELECT * FROM studentdata WHERE name=? OR id=? ' , [inputValue, inputValue] ,
         function(error, result){
           if(error){
-            console.error(error); // Log the error using console.error
-            res.status(500).send('Error occurred during search'); // Send an error response with status code 500
+            console.error(error); 
+            res.status(500).send('Error occurred during search'); 
           } else {
-            console.log(result); // Log results for debugging (optional)
-            res.json(result);   // Send the search results as JSON to the user
+            console.log(result); 
+            res.json(result);  
           }
         }
       );
     } catch(error) {
-      console.error(error); // Log any errors in the try-catch block
-      res.status(500).send('Error occurred during search'); // Send a generic error response
+      console.error(error); 
+      res.status(500).send('Error occurred during search'); 
     }
-  } else {
-    // Handle unauthorized access if role is not 'teacher' (optional)
-    res.status(401).send('Unauthorized access');
-  }
+  // else {
+  //   // Handle unauthorized access if role is not 'teacher'
+  //   res.status(401).send('Unauthorized access');
+  // }
 });
 // try {
 //   connection.query(
@@ -152,7 +150,8 @@ app.post("/signupstu", async (req, res) => {
             res.status(500).send("Error saving data!");
         }
         }
-        res.sendFile(path.join(__dirname, "public", "home.html"));
+        // res.sendFile(path.join(__dirname, "public", "home.html"));
+        res.sendFile(path.join(__dirname, "public", "studenthome.html"));
       }
     );
   } catch (error) {
@@ -241,7 +240,8 @@ if(error){
 else if(result!=""){
   console.log(result);
   // res.render('/home');  
-  res.sendFile(path.join(__dirname, "public", "home.html"));
+  // res.sendFile(path.join(__dirname, "public", "home.html"));
+  res.send (" STUDENT CORNER");
 }
 else{
   res.end("no user found");
@@ -272,10 +272,8 @@ else if(role==='teacher'){
 
 
 
-
 //view page
 app.get('/view' ,(req,res)=>{
-  if(roleof=='teacher'){
 //student data view page for teacher
   console.log(roleof);
   try {
@@ -284,7 +282,7 @@ app.get('/view' ,(req,res)=>{
         console.log(error);
         res.status(400).send("errooooor");
         return;
-      } 
+      }
       else {
         console.log(results);
         let tableHtml = "<table>";
@@ -304,11 +302,7 @@ app.get('/view' ,(req,res)=>{
     console.log(error);
     res.status(500).send("errooor");
 }
-}
-else{
-res.send("Only Teacher Can view Data Of All Students");
-}
-  });
+});
 
 
 // Handle form submission (assuming a POST request to "/add-student")
